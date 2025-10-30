@@ -11,7 +11,7 @@ const BRIGHTNESS_RANGE: u32 = MAX_BRIGHTNESS - MIN_BRIGHTNESS;
 
 const SD_PRODUCT_ID: u16 = 0x9243;
 const SD_VENDOR_ID: u16 = 0x05ac;
-const SD_INTERFACE_NR: i32 = 0x7;
+const SD_INTERFACE_NR: i32 = 0x4;
 
 fn get_brightness(handle: &mut hidapi::HidDevice) -> Result<u32, Box<dyn Error>> {
     let mut buf = Vec::with_capacity(7); // report id, 4 bytes brightness, 2 bytes unknown
