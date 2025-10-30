@@ -57,7 +57,7 @@ fn set_brightness_percent(
     Ok(())
 }
 
-fn studio_displays(hapi: &HidApi) -> Result<Vec<&hidapi::DeviceInfo>, Box<dyn Error>> {
+fn pro_displays(hapi: &HidApi) -> Result<Vec<&hidapi::DeviceInfo>, Box<dyn Error>> {
     return Ok(hapi
         .device_list()
         .filter(|x| {
@@ -123,7 +123,7 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     let hapi = HidApi::new()?;
 
-    let displays = studio_displays(&hapi)?;
+    let displays = pro_displays(&hapi)?;
     if displays.len() <= 0 {
         Err("No Apple Studio Display found")?;
     }
